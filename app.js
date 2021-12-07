@@ -9,7 +9,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 let db;
 
 client.connect(err => {
-    db = client.db("test").collection("studenci");
+    db = client.db("test").collection("test");
     
     app.get('/', async function (req, res) {
         const dbRes = await db.find({}, {});
