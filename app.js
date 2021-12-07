@@ -10,11 +10,12 @@ let db;
 
 client.connect(err => {
     db = client.db("test").collection("studenci");
-   
+    
+    app.get('/', async function (req, res) {
+        const dbRes = await db.find({}, {});
+        res.render('formularz', { uzytkownicy: await dbRes.toArray() });
+    })
 });
-app.get('/', function (req, res) {
-    res.render('formularz');
-})
 app.post('/', function (req, res) {
     db.insertOne({ imie: req.body.imie, nazwisko: req.body.nazwisko }, function (err, res) {
         if (err) throw err;

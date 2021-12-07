@@ -7,12 +7,19 @@
     <title>Formularz</title>
 </head>
 <body>
+    <h2>Lista studentów:</h2>
+    <ul>
+    {{#each uzytkownicy}}
+        <li>{{imie}} {{nazwisko}}</li>
+    {{/each}}
+    </ul><br>
+    <h2>Dopisz:</h2>
     <form action="" method="post">
-        <br>
         <input placeholder="imię" type="text" name="imie" id="imie">
         <br><br>
         <input placeholder="nazwisko" type="text" name="nazwisko" id="nazwisko"><br><br>
     <button type="submit">zapisz</button>
     </form>
+    
 </body>
 </html>
